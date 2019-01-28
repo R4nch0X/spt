@@ -1,0 +1,48 @@
+{% if totalCount %}
+
+	{% if pageCount > 1 %}
+		<div class="" style="text-align:center;">
+			<ul class="pagination">
+			{% if first is defined and current != first %}
+				<li><a href="{{ path(route, query|merge({(pageParameterName): first})) }}">{{ 'Primera' | trans }}</a></li>
+			{% else %}
+				<li><span>Primera</span></li>
+			{% endif %}
+			
+			{% if previous is defined %}
+				<li><a href="{{ path(route, query|merge({(pageParameterName): previous})) }}">&lt;</a></li>
+			{% endif %}
+			
+			{% for page in pagesInRange %}
+				{% if page != current %}
+					<li><a href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a></li>
+				{% else %}
+					<li class="active"><span>{{ page }}</span></li>
+				{% endif %}
+			{% endfor %}
+			
+			{% if next is defined %}
+				<li><a href="{{ path(route, query|merge({(pageParameterName): next})) }}">&gt;</a></li>
+			{% endif %}
+			
+			{% if last is defined and current != last %}
+				<li><a href="{{ path(route, query|merge({(pageParameterName): last})) }}">{{ 'Ultima' | trans }}</a></li>
+			{% else %}
+				<li><span>Ultima</span</li>
+			{% endif %}
+			</ul>
+		</div>
+		
+		<div class="" style="text-align:center;">
+			{{ 'Paginas' | trans }}: <strong>{{ current }} / {{ pageCount }}</strong>
+			{{ 'Total de registros' | trans }}: <strong>{{ totalCount }}</strong>
+		</div>
+	{% endif %}
+	
+{% else %}
+
+	<div class="msj-info">
+		{{ 'No se encontraron registros' | trans }}
+	</div>
+	
+{% endif %}

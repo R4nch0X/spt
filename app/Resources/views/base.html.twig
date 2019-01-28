@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{asset('/bundles/app/css/bootstrap.min.css')}}" />
+	    <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-theme.min.css')}}" />
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link href="rap/css/bootstrap.min.css" rel="stylesheet">
+
+    </head>
+    <body>
+
+            <table class="table table-bordered table-striped table-hover">
+            <tr>
+                <td>
+                    {% block sidebar %} 
+                        {% include "left-bar.html.twig" %}
+                    {% endblock %}
+                </td>
+                <td>
+                <div id="page-content-wrapper">
+
+                <div id="wrapper">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
+        </div>
+        </td></tr>
+        </table>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

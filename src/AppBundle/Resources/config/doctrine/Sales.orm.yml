@@ -1,0 +1,28 @@
+AppBundle\Entity\Sales:
+    type: entity
+    table: sales
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        date:
+            type: datetime
+            nullable: true
+        product:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        amount:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+    lifecycleCallbacks: {  }

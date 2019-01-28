@@ -1,0 +1,18 @@
+<form action="{{ path(action) }}" method="get" {{ form_enctype(filter) }} {{ (id is not defined) ? 'id=form_filter' : 'id=form_'~id }} class="form-inline">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="row">          
+      <div class="col-md-12">  
+        <div class="col-md-11">
+          <div class="row">    
+            {{ form_rest(filter) }}       
+          </div>
+        </div>
+        <div class="col-md-1 col-md-offset-0">
+          <div class="row">    
+            <input type="submit" name="btn_buscar" class="btn btn-primary" value="Search ">
+          </div>
+        </div>                 
+      </div>                   
+    </div>
+  </nav>
+</form> 

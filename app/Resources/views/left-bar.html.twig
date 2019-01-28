@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block sidebar %}
+
+            <ul class="">
+                <li class="">
+                    <a class="" href="{{ path('sales_index' | lower) }}">Sales Report</a>
+                </li>
+                <li>
+                    <a class="" href="{{ path('sales_new' | lower) }}">New Sale</a>
+                </li>
+            </ul>
+
+{% endblock %}

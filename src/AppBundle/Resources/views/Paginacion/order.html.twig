@@ -1,0 +1,10 @@
+<div class="table-header th-inner sortable">
+  <a {% for attr, value in options %} {{ attr }}="{{ value }}"{% endfor %}>{{ title }}</a>
+  {% for attr, value in options if attr == 'class' %} 
+    {% if value == "desc" or value ==  "asc" %}
+      <span class="order {{ value == "desc" ? "" : "dropup" }}"><span class="caret" style="margin: 10px 5px;"></span></span>
+    {% else %}
+      <span style="margin: 12px 7px;">&nbsp;</span>
+    {% endif %}
+  {% endfor %}
+</div>
